@@ -1,0 +1,60 @@
+/* Mobile-first styles */
+:root{
+  --bg:#0f1720;
+  --card-bg:#ffffff;
+  --accent:#06b6d4;
+  --text:#0b1220;
+}
+*{box-sizing:border-box}
+html,body,#app{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
+body{background:linear-gradient(180deg,#071024 0%,#081226 100%);color:#fff;-webkit-font-smoothing:antialiased}
+#app{padding:16px;display:flex;align-items:center;justify-content:center}
+.container{width:100%;max-width:420px;margin:0 auto}
+.header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.h1{font-size:1.25rem;font-weight:600}
+.btn{background:var(--accent);color:#012;padding:10px 14px;border-radius:10px;border:none;font-weight:600}
+.list{display:grid;gap:10px}
+.topic{background:rgba(255,255,255,0.06);padding:14px;border-radius:12px;display:flex;align-items:center;gap:12px;cursor:pointer}
+.topic img{width:56px;height:56px;object-fit:cover;border-radius:8px}
+.topic .meta{flex:1}
+.topic .meta .title{font-weight:700}
+.small{font-size:0.85rem;color:rgba(255,255,255,0.75)}
+
+/* Card screen */
+.card-wrap{perspective:1200px;display:flex;align-items:center;justify-content:center}
+.card{width:100%;max-width:360px;height:520px;border-radius:18px;overflow:hidden;position:relative;box-shadow:0 12px 40px rgba(2,6,23,0.6);background:#222}
+.card .face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;color:#fff}
+.card .face.front{background-size:cover;background-position:center}
+.card .face.back{background:linear-gradient(180deg,rgba(0,0,0,0.4),rgba(0,0,0,0.6));backface-visibility:hidden}
+.card .overlay{background:linear-gradient(180deg,transparent,rgba(0,0,0,0.6));position:absolute;inset:0}
+.question{font-weight:700;font-size:1.05rem;text-align:center;margin-bottom:12px;text-shadow:0 3px 10px rgba(0,0,0,0.6)}
+.options{display:grid;gap:10px;width:100%}
+.option{background:rgba(255,255,255,0.12);padding:10px;border-radius:10px;text-align:center;cursor:pointer}
+.option.correct{background:linear-gradient(90deg,#10b981,#06b6d4);color:#021}
+.option.wrong{background:linear-gradient(90deg,#ef4444,#f97316);}
+
+/* flip animation (360 deg) */
+.rotate-360{animation:rotate-360 .8s ease-in-out forwards}
+@keyframes rotate-360{0%{transform:rotateY(0deg)}50%{transform:rotateY(180deg)}100%{transform:rotateY(360deg)}}
+
+/* Reward/collection card animation */
+.collectible{width:260px;height:360px;border-radius:12px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,0.5);position:relative}
+.collectible .face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.rotate-continuous{animation:rotate-cont 3s linear infinite}
+@keyframes rotate-cont{0%{transform:rotateY(0deg)}50%{transform:rotateY(180deg)}100%{transform:rotateY(360deg)}}
+
+/* Collection list */
+.collection-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.card-thumb{width:100%;aspect-ratio:3/4;border-radius:10px;overflow:hidden}
+.card-thumb img, .collectible img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* Small helpers */
+.center{display:flex;align-items:center;justify-content:center}
+.note{font-size:0.9rem;color:rgba(255,255,255,0.8)}
+
+@media(min-width:720px){#app{padding:24px}.card{height:560px}}
+
+/* Reset button e snackbar */
+.reset-btn{position:fixed;right:18px;bottom:18px;border-radius:999px;padding:10px 14px;box-shadow:0 10px 30px rgba(2,6,23,0.35);z-index:60}
+.snackbar{position:fixed;left:50%;transform:translateX(-50%) translateY(8px);bottom:84px;background:rgba(0,0,0,0.78);color:#fff;padding:10px 14px;border-radius:8px;opacity:0;transition:opacity .22s ease,transform .22s ease;z-index:70}
+.snackbar.show{opacity:1;transform:translateX(-50%) translateY(0)}

@@ -1,0 +1,20 @@
+export const CARDS = [
+  {
+    id: 'card_math_1',
+    title: 'Medalha + Matemática',
+    frontImage: 'assets/card_math_front.svg',
+    backText: 'Conquista por acertar questão de matemática.'
+  },
+  {
+    id: 'card_math_2',
+    title: 'Troféu Álgebra',
+    frontImage: 'assets/card_math_2_front.svg',
+    backText: 'Conquista por responder desafio de tabuada'
+  },
+  {
+    id: 'card_science_1',
+    title: 'Símbolo da Ciência',
+    frontImage: 'assets/card_science_front.svg',
+    backText: 'Conquista por responder pergunta de ciência'
+  }
+];
