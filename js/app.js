@@ -57,7 +57,7 @@ function renderHome(){
           <img src="${t.image}" alt="${t.name}" />
           <div class="meta">
             <div class="title">${t.name}</div>
-            <div class="small">${t.questions.length} questão(ões)</div>
+            <div class="small">${(t.questions.filter(q => !state.asked.includes(q.id)).length)} ${(t.questions.filter(q => !state.asked.includes(q.id)).length === 1) ? 'questão restante' : 'questões restantes'}</div>
           </div>
           <div class="small">Começar</div>
         </div>`).join('')}</div>
@@ -102,16 +102,18 @@ function renderCardScreen(topic,q){
     </div>
     <div class="card-wrap" style="margin-top:12px">
       <div class="card" id="study-card">
-        <div class="face front" style="background-image:url('${q.image}')">
-          <div class="overlay"></div>
-          <div style="z-index:2;width:100%">
-            <div class="question">${q.question}</div>
-            <div class="options">${q.options.map((o,i)=>`<div class="option" data-index="${i}">${o}</div>`).join('')}</div>
+        <div class="card-inner">
+          <div class="card-face front" id="card-front" style="background-image:url('${q.image}')">
+            <div class="overlay"></div>
+            <div style="z-index:2;width:100%">
+              <div class="question">${q.question}</div>
+              <div class="options">${q.options.map((o,i)=>`<div class="option" data-index="${i}">${o}</div>`).join('')}</div>
+            </div>
           </div>
-        </div>
-        <div class="face back center" id="card-back" style="display:none">
-          <div class="back-content center">
-            <div class="note" id="back-msg"></div>
+          <div class="card-face back center" id="card-back">
+            <div class="back-content center">
+              <div class="note" id="back-msg"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -155,20 +157,21 @@ function renderTopicComplete(topic){
 function handleAnswer(e,q){
   const idx = Number(e.currentTarget.dataset.index);
   const card = document.getElementById('study-card');
+  const front = document.getElementById('card-front');
   const back = document.getElementById('card-back');
   const backMsg = document.getElementById('back-msg');
   // add visual selection
   e.currentTarget.classList.add(idx===q.answerIndex? 'correct':'wrong');
-  // start 360 animation and swap content at 50%
+  // start 360 animation and update back content at 50%
   const duration = 800;
-  card.classList.add('rotate-360');
+  card.classList.add('rotate-180');
   setTimeout(()=>{
-    // reveal back
-    back.style.display = 'flex';
+    // apenas atualiza a mensagem do verso; a visibilidade é controlada pela rotação 3D
     backMsg.textContent = idx===q.answerIndex? 'Parabéns! Você acertou.' : 'Tente novamente.';
   }, duration/2);
   card.addEventListener('animationend', ()=>{
-    card.classList.remove('rotate-360');
+    card.classList.add('rotated-180');
+    card.classList.remove('rotate-180');
     // After short delay, navigate accordingly
     setTimeout(()=>{
       if(idx===q.answerIndex){
@@ -208,7 +211,14 @@ function renderReward(card){
     </div>
     <div style="margin-top:18px;display:flex;flex-direction:column;gap:16px;align-items:center">
       <div class="collectible rotate-continuous center" role="img" aria-label="${card?.title || 'Card'}">
-        <img src="${card?.frontImage || 'assets/card_math_front.svg'}" alt="${card?.title|| 'Card'}" style="width:100%;height:100%;object-fit:cover;display:block" onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<div class=\'note\'>Imagem não encontrada</div>')"/>
+        <div class="collectible-inner">
+          <div class="collectible-face front">
+            <img src="${card?.frontImage || 'assets/card_math_front.svg'}" alt="${card?.title|| 'Card frente'}" onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<div class=\'note\'>Imagem não encontrada</div>')"/>
+          </div>
+          <div class="collectible-face back">
+            <img src="${card?.backImage || 'assets/card_math_back.svg'}" alt="${card?.title|| 'Card verso'}" onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<div class=\'note\'>Imagem não encontrada</div>')"/>
+          </div>
+        </div>
       </div>
       <div class="note">Você recebeu: <strong>${card?.title || '—'}</strong></div>
       <button class="btn" id="to-collection">Ver Coleção</button>
@@ -269,7 +279,14 @@ function renderCardView(id){
     </div>
     <div style="margin-top:18px;display:flex;flex-direction:column;align-items:center;gap:14px">
       <div class="collectible rotate-continuous center" style="width:260px;height:360px" role="img" aria-label="${c.title}">
-        <img src="${c.frontImage}" alt="${c.title}" style="width:100%;height:100%;object-fit:cover;display:block" onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<div class=\'note\'>Imagem não encontrada</div>')"/>
+        <div class="collectible-inner">
+          <div class="collectible-face front">
+            <img src="${c.frontImage}" alt="${c.title|| 'Card frente'}" onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<div class=\'note\'>Imagem não encontrada</div>')"/>
+          </div>
+          <div class="collectible-face back">
+            <img src="${c.backImage}" alt="${c.title|| 'Card verso'}" onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<div class=\'note\'>Imagem não encontrada</div>')"/>
+          </div>
+        </div>
       </div>
       <div class="note">${c.backText}</div>
     </div>
