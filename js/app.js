@@ -44,6 +44,31 @@ function removeResetButton(){
   if(prev) prev.remove();
 }
 
+// Helpers para download de imagens
+function getFileExtension(url){
+  try{
+    const clean = url.split('?')[0].split('#')[0];
+    const parts = clean.split('.');
+    const ext = parts[parts.length-1];
+    if(!ext || ext.length>5 || ext.includes('/')) return 'png';
+    return ext;
+  }catch(e){return 'png'}
+}
+function downloadImage(url, filename){
+  try{
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    // some browsers require anchor to be in DOM
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }catch(e){
+    console.error('Falha ao iniciar download', e);
+    showSnackbar('Não foi possível iniciar o download');
+  }
+}
+
 /* --- Views --- */
 function renderHome(){
   const html = `
@@ -74,6 +99,23 @@ function renderHome(){
     });
   }
   document.getElementById('view-collection').addEventListener('click', ()=>renderCollection());
+  // mostrar botão de reset apenas na tela inicial
+  removeResetButton();
+  const resetBtn = document.createElement('button');
+  resetBtn.id = 'reset-asked';
+  resetBtn.className = 'btn reset-btn';
+  resetBtn.textContent = 'Reset Geral';
+  resetBtn.addEventListener('click', ()=>{
+    const ok = confirm('Tem certeza que deseja reiniciar TODOS os dados (coleção e histórico)? Esta ação não pode ser desfeita.');
+    if(!ok) return;
+    state.asked = [];
+    state.collection = [];
+    askedStore.save(state.asked);
+    store.save(state.collection);
+    showSnackbar('Dados reiniciados');
+    renderHome();
+  });
+  document.body.appendChild(resetBtn);
 }
 
 function startTopic(topicId){
@@ -130,28 +172,17 @@ function renderTopicComplete(topic){
   const html = `
   <div class="container">
     <div class="header">
-      <button class="btn" id="back-home">Início</button>
+      <button class="btn" id="back-home">Voltar</button>
       <div class="h1">Parabéns</div>
       <div style="width:36px"></div>
     </div>
     <div style="margin-top:18px;display:flex;flex-direction:column;align-items:center;gap:12px">
       <div class="note">Parabéns! Você concluiu todas as perguntas de <strong>${topic.name}</strong>.</div>
-      <div style="display:flex;gap:8px;margin-top:6px">
-        <button class="btn" id="restart-topic">Reiniciar perguntas</button>
-        <button class="btn" id="to-home">Voltar</button>
-      </div>
     </div>
   </div>`;
   app.innerHTML = html;
   removeResetButton();
-  document.getElementById('to-home').addEventListener('click', ()=>renderHome());
-  document.getElementById('restart-topic').addEventListener('click', ()=>{
-    const topicIds = topic.questions.map(q=>q.id);
-    state.asked = state.asked.filter(id => !topicIds.includes(id));
-    askedStore.save(state.asked);
-    showSnackbar('Perguntas do tema reiniciadas');
-    startTopic(topic.id);
-  });
+  document.getElementById('back-home').addEventListener('click', ()=>renderHome());
 }
 
 function handleAnswer(e,q){
@@ -205,7 +236,7 @@ function renderReward(card){
   const html = `
   <div class="container">
     <div style="width:100%" class="header">
-      <button class="btn" id="to-home">Início</button>
+      <button class="btn" id="to-home">Voltar</button>
       <div class="h1">Recompensa</div>
       <div style="width:36px"></div>
     </div>
@@ -235,7 +266,7 @@ function renderCollection(){
   const html = `
   <div class="container">
     <div class="header">
-      <button class="btn" id="back-home">Início</button>
+      <button class="btn" id="back-home">Voltar</button>
       <div class="h1">Minha Coleção</div>
       <div style="width:36px"></div>
     </div>
@@ -246,25 +277,8 @@ function renderCollection(){
   app.innerHTML = html;
   document.getElementById('back-home').addEventListener('click', ()=>renderHome());
   document.querySelectorAll('.card-thumb').forEach(el=>el.addEventListener('click', ()=>renderCardView(el.dataset.id)));
-  // botão para resetar histórico de perguntas visível na tela de coleção
+  // não exibir botão de reset nesta tela (está disponível apenas na Tela Inicial)
   removeResetButton();
-  const resetBtn = document.createElement('button');
-  resetBtn.id = 'reset-asked';
-  resetBtn.className = 'btn reset-btn';
-  resetBtn.textContent = 'Reset Perguntas';
-  resetBtn.addEventListener('click', ()=>{
-    const ok = confirm('Tem certeza que deseja reiniciar TODOS os dados (coleção e histórico)? Esta ação não pode ser desfeita.');
-    if(!ok) return;
-    state.asked = [];
-    state.collection = [];
-    askedStore.save(state.asked);
-    store.save(state.collection);
-    showSnackbar('Dados reiniciados');
-    // atualizar a tela para refletir coleção vazia
-    renderCollection();
-  });
-  // anexar ao body para ficar fixo no canto inferior
-  document.body.appendChild(resetBtn);
 } 
 
 function renderCardView(id){
@@ -289,10 +303,22 @@ function renderCardView(id){
         </div>
       </div>
       <div class="note">${c.backText}</div>
+      <div style="margin-top:8px">
+        <button class="btn" id="download-front">Baixar frente</button>
+      </div>
     </div>
   </div>`;
   app.innerHTML = html;
   document.getElementById('back-collection').addEventListener('click', ()=>renderCollection());
+  // handler para download da frente do card
+  const dl = document.getElementById('download-front');
+  if(dl){
+    dl.addEventListener('click', ()=>{
+      const ext = getFileExtension(c.frontImage || 'image.png');
+      const fileName = `${c.id}-front.${ext}`;
+      downloadImage(c.frontImage, fileName);
+    });
+  }
 } 
 
 /* Init */

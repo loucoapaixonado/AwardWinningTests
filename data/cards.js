@@ -1,23 +1,23 @@
 export const CARDS = [
   {
-    id: 'card_math_1',
-    title: 'Medalha + Matemática',
-    frontImage: 'assets/card_math_front.svg',
-    backImage: 'assets/card_math_back.svg',
+    id: 'card_mlp_1',
+    title: 'Twilight Sparkle',
+    frontImage: 'assets/cards/mlp/twilight-3.png',
+    backImage: 'assets/cards/back/mlp-1.png',
     backText: 'Conquista por acertar questão de matemática.'
   },
   {
-    id: 'card_math_2',
-    title: 'Troféu Álgebra',
-    frontImage: 'assets/card_math_2_front.svg',
-    backImage: 'assets/card_math_2_back.svg',
+    id: 'card_mlp_2',
+    title: 'Princesa Cadance',
+    frontImage: 'assets/cards/mlp/cadance-1.png',
+    backImage: 'assets/cards/back/pink-1.png',
     backText: 'Conquista por responder desafio de tabuada'
   },
   {
-    id: 'card_science_1',
-    title: 'Símbolo da Ciência',
-    frontImage: 'assets/card_science_front.svg',
-    backImage: 'assets/card_science_back.svg',
+    id: 'card_bts_1',
+    title: 'Min Yoongi',
+    frontImage: 'assets/cards/bts/yoongi-1.png',
+    backImage: 'assets/cards/back/bts-2.png',
     backText: 'Conquista por responder pergunta de ciência'
   }
 ];

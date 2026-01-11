@@ -1,39 +1,39 @@
 export const QUESTIONS = [
   {
-    id: 'matematica',
-    name: 'Matemática',
-    image: 'assets/bg_math.svg',
+    id: 'mlp',
+    name: 'My Little Pony',
+    image: 'assets/backgrounds/mlp-mosaico.png',
     questions: [
       {
-        id: 'm1',
-        image: 'assets/bg_math.svg',
-        question: 'Quanto é 2 + 2?',
+        id: 'mlp1',
+        image: 'assets/backgrounds/mlp-mosaico.png',
+        question: 'Por quantas pôneis é formado o grupo de protagonista em My Little Pony: A Amizade é Mágica?',
         options: ['3','4','5','6'],
-        answerIndex: 1,
-        rewardCardId: 'card_math_1'
+        answerIndex: 3,
+        rewardCardId: 'card_mlp_1'
       },
       {
-        id: 'm2',
-        image: 'assets/bg_math.svg',
-        question: 'Qual é a tabuada de 3 para 3x3?',
-        options: ['6','9','12','15'],
-        answerIndex: 1,
-        rewardCardId: 'card_math_2'
+        id: 'mlp2',
+        image: 'assets/backgrounds/mlp-mosaico.png',
+        question: 'Quantos alicórnios existem no final da série My Little Pony: A Amizade é Mágica?',
+        options: ['4','5','3','2'],
+        answerIndex: 0,
+        rewardCardId: 'card_mlp_2'
       }
     ]
   },
   {
-    id: 'ciencias',
-    name: 'Ciências',
-    image: 'assets/bg_science.svg',
+    id: 'bts',
+    name: 'BTS',
+    image: 'assets/backgrounds/bts-praia.png',
     questions: [
       {
-        id: 's1',
-        image: 'assets/bg_science.svg',
-        question: 'Qual é o símbolo químico da água?',
-        options: ['O2','H2O','CO2','NaCl'],
-        answerIndex: 1,
-        rewardCardId: 'card_science_1'
+        id: 'bts1',
+        image: 'assets/backgrounds/bts-praia.png',
+        question: 'O grupo é formado por quantos integrantes?',
+        options: ['7','8','9','10'],
+        answerIndex: 0,
+        rewardCardId: 'card_bts_1'
       }
     ]
   }

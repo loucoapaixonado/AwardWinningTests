@@ -3,7 +3,7 @@
   --bg: #0f1720;
   --card-bg: #ffffff;
   --accent: #06b6d4;
-  --text: #0b1220;
+  --text: #081d46;
 }
 
 * {
@@ -141,7 +141,7 @@ body {
 }
 
 .card-face.back {
-  background: linear-gradient(180deg, rgb(0, 0, 0), rgb(0, 0, 0));
+  background: linear-gradient(180deg, var(--accent), var(--text));
   transform: rotateY(180deg)
 }
 
@@ -298,8 +298,9 @@ body {
 }
 
 .note {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8)
+  font-size: 16pt;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
 }
 
 @media(min-width:720px) {
