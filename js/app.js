@@ -79,6 +79,7 @@ function downloadImage(url, filename){
 
 /* --- Views --- */
 function renderHome(){
+  app.classList.add('scrollable');
   const topics = QUESTIONS.filter(t => state.selectedTopics.includes(t.id));
   const html = `
     <div class="container">
@@ -95,7 +96,7 @@ function renderHome(){
           </div>
           <div class="small">Começar</div>
         </div>`).join('')}</div>
-      <button class="btn" id="add-topic">Adicionar</button>
+      <button class="btn" id="add-topic" style="margin-top:20px;">Adicionar</button>
     </div>`;
   app.innerHTML = html;
   // delegação: captura cliques dentro da lista para identificar o tema clicado
@@ -148,7 +149,7 @@ function renderTopicSelection(){
             </div>
           </label>
         </div>`).join('')}</div>
-      <button class="btn" id="save-topics">Salvar</button>
+      <button class="btn" id="save-topics" style="margin-top:20px;">Salvar</button>
     </div>`;
   app.innerHTML = html;
   removeResetButton();
@@ -306,6 +307,7 @@ function renderReward(card){
 } 
 
 function renderCollection(){
+  app.classList.add('scrollable');
   const list = state.collection;
   const html = `
   <div class="container">
@@ -323,9 +325,10 @@ function renderCollection(){
   document.querySelectorAll('.card-thumb').forEach(el=>el.addEventListener('click', ()=>renderCardView(el.dataset.id)));
   // não exibir botão de reset nesta tela (está disponível apenas na Tela Inicial)
   removeResetButton();
-} 
+}
 
 function renderCardView(id){
+  app.classList.remove('scrollable');
   const c = state.collection.find(x=>x.id===id);
   if(!c) return renderCollection();
   const html = `
@@ -363,7 +366,7 @@ function renderCardView(id){
       downloadImage(c.frontImage, fileName);
     });
   }
-} 
+}
 
 /* Init */
 function init(){

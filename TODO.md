@@ -1,6 +1,2 @@
-- [x] Add selectedTopics storage and state in app.js
-- [x] Modify renderHome to filter topics based on selected and add 'Adicionar' button
-- [x] Create renderTopicSelection function for topic selection screen
-- [x] Update CSS to make headers sticky at top
-- [x] Add CSS for topic-selection styling
-- [x] Test the implementation
+- [x] Update data/cards.js with new CARDS array including all required cards for MLP, BTS, and BT21 characters.
+- [x] Update data/questions.js with new QUESTIONS array including all required questions for MLP, BTS, and BT21 characters.
