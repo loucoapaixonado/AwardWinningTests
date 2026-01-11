@@ -11,14 +11,14 @@ export const CARDS = [
     id: 'card_mlp_twilight_2',
     title: 'Twilight Sparkle',
     frontImage: 'assets/cards/mlp/twilight-2.png',
-    backImage: 'assets/cards/back/mlp-1.png',
+    backImage: 'assets/cards/back/pink-1.png',
     backText: 'Conquista por acertar questão sobre Twilight Sparkle.'
   },
   {
     id: 'card_mlp_twilight_3',
     title: 'Twilight Sparkle',
     frontImage: 'assets/cards/mlp/twilight-3.png',
-    backImage: 'assets/cards/back/mlp-1.png',
+    backImage: 'assets/cards/back/pink-1.png',
     backText: 'Conquista por acertar questão sobre Twilight Sparkle.'
   },
   {
@@ -32,14 +32,14 @@ export const CARDS = [
     id: 'card_mlp_rarity_2',
     title: 'Rarity',
     frontImage: 'assets/cards/mlp/rarity-2.png',
-    backImage: 'assets/cards/back/mlp-1.png',
+    backImage: 'assets/cards/back/pink-1.png',
     backText: 'Conquista por acertar questão sobre Rarity.'
   },
   {
     id: 'card_mlp_rarity_3',
     title: 'Rarity',
     frontImage: 'assets/cards/mlp/rarity-3.png',
-    backImage: 'assets/cards/back/mlp-1.png',
+    backImage: 'assets/cards/back/pink-1.png',
     backText: 'Conquista por acertar questão sobre Rarity.'
   },
   {
@@ -53,14 +53,14 @@ export const CARDS = [
     id: 'card_mlp_rainbow_2',
     title: 'Rainbow Dash',
     frontImage: 'assets/cards/mlp/rainbow-2.png',
-    backImage: 'assets/cards/back/mlp-1.png',
+    backImage: 'assets/cards/back/pink-1.png',
     backText: 'Conquista por acertar questão sobre Rainbow Dash.'
   },
   {
     id: 'card_mlp_rainbow_3',
     title: 'Rainbow Dash',
     frontImage: 'assets/cards/mlp/rainbow-3.png',
-    backImage: 'assets/cards/back/mlp-1.png',
+    backImage: 'assets/cards/back/pink-1.png',
     backText: 'Conquista por acertar questão sobre Rainbow Dash.'
   },
   {
@@ -74,14 +74,14 @@ export const CARDS = [
     id: 'card_mlp_pinkie_2',
     title: 'Pinkie Pie',
     frontImage: 'assets/cards/mlp/pinkie-2.png',
-    backImage: 'assets/cards/back/mlp-1.png',
+    backImage: 'assets/cards/back/pink-1.png',
     backText: 'Conquista por acertar questão sobre Pinkie Pie.'
   },
   {
     id: 'card_mlp_pinkie_3',
     title: 'Pinkie Pie',
     frontImage: 'assets/cards/mlp/pinkie-3.png',
-    backImage: 'assets/cards/back/mlp-1.png',
+    backImage: 'assets/cards/back/pink-1.png',
     backText: 'Conquista por acertar questão sobre Pinkie Pie.'
   },
   {
@@ -95,14 +95,14 @@ export const CARDS = [
     id: 'card_mlp_flutter_2',
     title: 'Fluttershy',
     frontImage: 'assets/cards/mlp/flutter-2.png',
-    backImage: 'assets/cards/back/mlp-1.png',
+    backImage: 'assets/cards/back/pink-1.png',
     backText: 'Conquista por acertar questão sobre Fluttershy.'
   },
   {
     id: 'card_mlp_flutter_3',
     title: 'Fluttershy',
     frontImage: 'assets/cards/mlp/flutter-3.png',
-    backImage: 'assets/cards/back/mlp-1.png',
+    backImage: 'assets/cards/back/pink-1.png',
     backText: 'Conquista por acertar questão sobre Fluttershy.'
   },
   {
@@ -116,14 +116,14 @@ export const CARDS = [
     id: 'card_mlp_applejack_2',
     title: 'Applejack',
     frontImage: 'assets/cards/mlp/applejack-2.png',
-    backImage: 'assets/cards/back/mlp-1.png',
+    backImage: 'assets/cards/back/pink-1.png',
     backText: 'Conquista por acertar questão sobre Applejack.'
   },
   {
     id: 'card_mlp_applejack_3',
     title: 'Applejack',
     frontImage: 'assets/cards/mlp/applejack-3.png',
-    backImage: 'assets/cards/back/mlp-1.png',
+    backImage: 'assets/cards/back/pink-1.png',
     backText: 'Conquista por acertar questão sobre Applejack.'
   },
   // My Little Pony - Other Characters (1 each)
@@ -153,7 +153,7 @@ export const CARDS = [
     id: 'card_bts_v_1',
     title: 'V',
     frontImage: 'assets/cards/bts/v-1.png',
-    backImage: 'assets/cards/back/bts-1.png',
+    backImage: 'assets/cards/back/bts-2.png',
     backText: 'Conquista por acertar questão sobre V.'
   },
   {
@@ -167,7 +167,7 @@ export const CARDS = [
     id: 'card_bts_rm_1',
     title: 'RM',
     frontImage: 'assets/cards/bts/namjoon-1.png',
-    backImage: 'assets/cards/back/bts-1.png',
+    backImage: 'assets/cards/back/bts-2.png',
     backText: 'Conquista por acertar questão sobre RM.'
   },
   {
@@ -181,7 +181,7 @@ export const CARDS = [
     id: 'card_bts_jin_1',
     title: 'Jin',
     frontImage: 'assets/cards/bts/jin-1.png',
-    backImage: 'assets/cards/back/bts-1.png',
+    backImage: 'assets/cards/back/bts-2.png',
     backText: 'Conquista por acertar questão sobre Jin.'
   },
   {
@@ -195,7 +195,7 @@ export const CARDS = [
     id: 'card_bts_jimin_1',
     title: 'Jimin',
     frontImage: 'assets/cards/bts/jimin-1.png',
-    backImage: 'assets/cards/back/bts-1.png',
+    backImage: 'assets/cards/back/bts-2.png',
     backText: 'Conquista por acertar questão sobre Jimin.'
   },
   {
@@ -209,7 +209,7 @@ export const CARDS = [
     id: 'card_bts_jungkook_1',
     title: 'Jungkook',
     frontImage: 'assets/cards/bts/jk-1.png',
-    backImage: 'assets/cards/back/bts-1.png',
+    backImage: 'assets/cards/back/bts-2.png',
     backText: 'Conquista por acertar questão sobre Jungkook.'
   },
   {
@@ -223,7 +223,7 @@ export const CARDS = [
     id: 'card_bts_yoongi_1',
     title: 'Yoongi',
     frontImage: 'assets/cards/bts/yoongi-1.png',
-    backImage: 'assets/cards/back/bts-1.png',
+    backImage: 'assets/cards/back/bts-2.png',
     backText: 'Conquista por acertar questão sobre Yoongi.'
   },
   {
@@ -237,7 +237,7 @@ export const CARDS = [
     id: 'card_bts_jhope_1',
     title: 'J-hope',
     frontImage: 'assets/cards/bts/jhope-1.png',
-    backImage: 'assets/cards/back/bts-1.png',
+    backImage: 'assets/cards/back/bts-2.png',
     backText: 'Conquista por acertar questão sobre J-hope.'
   },
   {
@@ -252,56 +252,56 @@ export const CARDS = [
     id: 'card_bt21_tata_1',
     title: 'Tata',
     frontImage: 'assets/cards/bts/tata-1.png',
-    backImage: 'assets/cards/back/bts-1.png',
+    backImage: 'assets/cards/back/bts-3.png',
     backText: 'Conquista por acertar questão sobre Tata.'
   },
   {
     id: 'card_bt21_van_1',
     title: 'Van',
     frontImage: 'assets/cards/bts/van-1.png',
-    backImage: 'assets/cards/back/bts-1.png',
+    backImage: 'assets/cards/back/bts-3.png',
     backText: 'Conquista por acertar questão sobre Van.'
   },
   {
     id: 'card_bt21_shooky_1',
     title: 'Shooky',
     frontImage: 'assets/cards/bts/shooky-1.png',
-    backImage: 'assets/cards/back/bts-1.png',
+    backImage: 'assets/cards/back/bts-3.png',
     backText: 'Conquista por acertar questão sobre Shooky.'
   },
   {
     id: 'card_bt21_rj_1',
     title: 'RJ',
     frontImage: 'assets/cards/bts/rj-1.png',
-    backImage: 'assets/cards/back/bts-1.png',
+    backImage: 'assets/cards/back/bts-3.png',
     backText: 'Conquista por acertar questão sobre RJ.'
   },
   {
     id: 'card_bt21_mang_1',
     title: 'Mang',
     frontImage: 'assets/cards/bts/mang-1.png',
-    backImage: 'assets/cards/back/bts-1.png',
+    backImage: 'assets/cards/back/bts-3.png',
     backText: 'Conquista por acertar questão sobre Mang.'
   },
   {
     id: 'card_bt21_koya_1',
     title: 'Koya',
     frontImage: 'assets/cards/bts/koya-1.png',
-    backImage: 'assets/cards/back/bts-1.png',
+    backImage: 'assets/cards/back/bts-3.png',
     backText: 'Conquista por acertar questão sobre Koya.'
   },
   {
     id: 'card_bt21_chimmy_1',
     title: 'Chimmy',
     frontImage: 'assets/cards/bts/chimmy-1.png',
-    backImage: 'assets/cards/back/bts-1.png',
+    backImage: 'assets/cards/back/bts-3.png',
     backText: 'Conquista por acertar questão sobre Chimmy.'
   },
   {
     id: 'card_bt21_cooky_1',
     title: 'Cooky',
     frontImage: 'assets/cards/bts/cooky-1.png',
-    backImage: 'assets/cards/back/bts-1.png',
+    backImage: 'assets/cards/back/bts-3.png',
     backText: 'Conquista por acertar questão sobre Cooky.'
   },
   // Homem-Aranha - 10 cards
@@ -358,21 +358,21 @@ export const CARDS = [
     id: 'card_spider_iron_spider_1',
     title: 'Aranha de Ferro',
     frontImage: 'assets/cards/spider/iron-spider.png',
-    backImage: 'assets/cards/back/spider-1.png',
+    backImage: 'assets/cards/back/spider-2.png',
     backText: 'Conquista por acertar questão sobre traje Aranha de Ferro.'
   },
   {
     id: 'card_spider_tres_miranha_1',
     title: 'Três Homens-Aranha',
     frontImage: 'assets/cards/spider/tres-miranha.png',
-    backImage: 'assets/cards/back/spider-1.png',
+    backImage: 'assets/cards/back/spider-2.png',
     backText: 'Conquista por acertar questão sobre a cena dos três Homens-Aranha.'
   },
   {
     id: 'card_spider_spiderverse_1',
     title: 'Aranhaverso',
     frontImage: 'assets/cards/spider/spiderverse.png',
-    backImage: 'assets/cards/back/spider-1.png',
+    backImage: 'assets/cards/back/spider-2.png',
     backText: 'Conquista por acertar questão sobre o Aranhaverso.'
   }
 ];

@@ -350,7 +350,7 @@ function renderCardView(id){
       </div>
       <div class="note">${c.backText}</div>
       <div style="margin-top:8px">
-        <button class="btn" id="download-front">Baixar frente</button>
+        <button class="btn" id="download-front">Baixar Card</button>
       </div>
     </div>
   </div>`;
