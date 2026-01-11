@@ -4,6 +4,7 @@ import { CARDS } from '../data/cards.js';
 const app = document.getElementById('app');
 const STORAGE_KEY = 'award_cards_collection_v1';
 const ASKED_KEY = 'award_cards_asked_v1';
+const SELECTED_TOPICS_KEY = 'award_cards_selected_topics_v1';
 
 /* Utility for localStorage */
 const store = {
@@ -20,8 +21,15 @@ const askedStore = {
   },
   save(list){localStorage.setItem(ASKED_KEY,JSON.stringify(list))}
 }
+const selectedTopicsStore = {
+  load(){
+    try{return JSON.parse(localStorage.getItem(SELECTED_TOPICS_KEY) || JSON.stringify(QUESTIONS.map(q => q.id)))}
+    catch(e){return QUESTIONS.map(q => q.id)}
+  },
+  save(list){localStorage.setItem(SELECTED_TOPICS_KEY,JSON.stringify(list))}
+}
 
-let state = { collection: store.load(), asked: askedStore.load() };
+let state = { collection: store.load(), asked: askedStore.load(), selectedTopics: selectedTopicsStore.load() };
 // helper de UI: mostrar mensagens rápidas (snackbar)
 function showSnackbar(text){
   const id = 'aw-snackbar';
@@ -71,13 +79,14 @@ function downloadImage(url, filename){
 
 /* --- Views --- */
 function renderHome(){
+  const topics = QUESTIONS.filter(t => state.selectedTopics.includes(t.id));
   const html = `
     <div class="container">
       <div class="header">
         <div class="h1">Escolha um tema</div>
         <button class="btn" id="view-collection">Coleção</button>
       </div>
-      <div class="list">${QUESTIONS.map(t => `
+      <div class="list">${topics.map(t => `
         <div class="topic" data-topic="${t.id}">
           <img src="${t.image}" alt="${t.name}" />
           <div class="meta">
@@ -86,6 +95,7 @@ function renderHome(){
           </div>
           <div class="small">Começar</div>
         </div>`).join('')}</div>
+      <button class="btn" id="add-topic">Adicionar</button>
     </div>`;
   app.innerHTML = html;
   // delegação: captura cliques dentro da lista para identificar o tema clicado
@@ -99,6 +109,7 @@ function renderHome(){
     });
   }
   document.getElementById('view-collection').addEventListener('click', ()=>renderCollection());
+  document.getElementById('add-topic').addEventListener('click', ()=>renderTopicSelection());
   // mostrar botão de reset apenas na tela inicial
   removeResetButton();
   const resetBtn = document.createElement('button');
@@ -116,6 +127,39 @@ function renderHome(){
     renderHome();
   });
   document.body.appendChild(resetBtn);
+}
+
+function renderTopicSelection(){
+  const html = `
+    <div class="container">
+      <div class="header">
+        <button class="btn" id="back-home">Voltar</button>
+        <div class="h1">Selecionar Temas</div>
+        <div style="width:36px"></div>
+      </div>
+      <div class="list">${QUESTIONS.map(t => `
+        <div class="topic-selection" data-topic="${t.id}">
+          <label>
+            <input type="checkbox" ${state.selectedTopics.includes(t.id) ? 'checked' : ''} />
+            <img src="${t.image}" alt="${t.name}" />
+            <div class="meta">
+              <div class="title">${t.name}</div>
+              <div class="small">${t.questions.length} perguntas</div>
+            </div>
+          </label>
+        </div>`).join('')}</div>
+      <button class="btn" id="save-topics">Salvar</button>
+    </div>`;
+  app.innerHTML = html;
+  removeResetButton();
+  document.getElementById('back-home').addEventListener('click', ()=>renderHome());
+  document.getElementById('save-topics').addEventListener('click', ()=>{
+    const selected = Array.from(document.querySelectorAll('.topic-selection input:checked')).map(cb => cb.closest('.topic-selection').dataset.topic);
+    state.selectedTopics = selected;
+    selectedTopicsStore.save(state.selectedTopics);
+    showSnackbar('Temas salvos!');
+    renderHome();
+  });
 }
 
 function startTopic(topicId){

@@ -1,0 +1,6 @@
+- [x] Add selectedTopics storage and state in app.js
+- [x] Modify renderHome to filter topics based on selected and add 'Adicionar' button
+- [x] Create renderTopicSelection function for topic selection screen
+- [x] Update CSS to make headers sticky at top
+- [x] Add CSS for topic-selection styling
+- [x] Test the implementation
