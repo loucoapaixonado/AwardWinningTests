@@ -23,8 +23,8 @@ const askedStore = {
 }
 const selectedTopicsStore = {
   load(){
-    try{return JSON.parse(localStorage.getItem(SELECTED_TOPICS_KEY) || JSON.stringify(QUESTIONS.map(q => q.id)))}
-    catch(e){return QUESTIONS.map(q => q.id)}
+    try{return JSON.parse(localStorage.getItem(SELECTED_TOPICS_KEY) || JSON.stringify(['mlp']))}
+    catch(e){return ['mlp']}
   },
   save(list){localStorage.setItem(SELECTED_TOPICS_KEY,JSON.stringify(list))}
 }
@@ -94,9 +94,8 @@ function renderHome(){
             <div class="title">${t.name}</div>
             <div class="small">${(t.questions.filter(q => !state.asked.includes(q.id)).length)} ${(t.questions.filter(q => !state.asked.includes(q.id)).length === 1) ? 'questão restante' : 'questões restantes'}</div>
           </div>
-          <div class="small">Começar</div>
         </div>`).join('')}</div>
-      <button class="btn" id="add-topic" style="margin-top:20px;">Adicionar</button>
+      <button class="btn" id="add-topic" style="margin-top:20px;">Editar</button>
     </div>`;
   app.innerHTML = html;
   // delegação: captura cliques dentro da lista para identificar o tema clicado
@@ -116,7 +115,7 @@ function renderHome(){
   const resetBtn = document.createElement('button');
   resetBtn.id = 'reset-asked';
   resetBtn.className = 'btn reset-btn';
-  resetBtn.textContent = 'Reset Geral';
+  resetBtn.textContent = 'Reiniciar Dados';
   resetBtn.addEventListener('click', ()=>{
     const ok = confirm('Tem certeza que deseja reiniciar TODOS os dados (coleção e histórico)? Esta ação não pode ser desfeita.');
     if(!ok) return;

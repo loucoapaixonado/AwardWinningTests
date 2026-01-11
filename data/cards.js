@@ -303,5 +303,76 @@ export const CARDS = [
     frontImage: 'assets/cards/bts/cooky-1.png',
     backImage: 'assets/cards/back/bts-1.png',
     backText: 'Conquista por acertar questão sobre Cooky.'
+  },
+  // Homem-Aranha - 10 cards
+  {
+    id: 'card_spider_spiderman_1',
+    title: 'Homem-Aranha Tradicional',
+    frontImage: 'assets/cards/spider/spiderman-1.png',
+    backImage: 'assets/cards/back/spider-1.png',
+    backText: 'Conquista por acertar questão sobre Homem-Aranha tradicional.'
+  },
+  {
+    id: 'card_spider_venom_1',
+    title: 'Venom',
+    frontImage: 'assets/cards/spider/venom-1.png',
+    backImage: 'assets/cards/back/spider-1.png',
+    backText: 'Conquista por acertar questão sobre Venom.'
+  },
+  {
+    id: 'card_spider_miles_1',
+    title: 'Miles Morales',
+    frontImage: 'assets/cards/spider/miles-1.png',
+    backImage: 'assets/cards/back/spider-1.png',
+    backText: 'Conquista por acertar questão sobre Miles Morales.'
+  },
+  {
+    id: 'card_spider_miles_2',
+    title: 'Miles Morales',
+    frontImage: 'assets/cards/spider/miles-2.png',
+    backImage: 'assets/cards/back/spider-1.png',
+    backText: 'Conquista por acertar questão sobre Miles Morales.'
+  },
+  {
+    id: 'card_spider_spidergwen_1',
+    title: 'Spider-Gwen',
+    frontImage: 'assets/cards/spider/spidergwen-1.png',
+    backImage: 'assets/cards/back/spider-1.png',
+    backText: 'Conquista por acertar questão sobre Spider-Gwen.'
+  },
+  {
+    id: 'card_spider_spidergwen_2',
+    title: 'Spider-Gwen',
+    frontImage: 'assets/cards/spider/spidergwen-2.png',
+    backImage: 'assets/cards/back/spider-1.png',
+    backText: 'Conquista por acertar questão sobre Spider-Gwen.'
+  },
+  {
+    id: 'card_spider_ghost_spider_1',
+    title: 'Ghost-Spider',
+    frontImage: 'assets/cards/spider/ghost-spider-1.png',
+    backImage: 'assets/cards/back/spider-1.png',
+    backText: 'Conquista por acertar questão sobre Ghost-Spider.'
+  },
+  {
+    id: 'card_spider_iron_spider_1',
+    title: 'Aranha de Ferro',
+    frontImage: 'assets/cards/spider/iron-spider.png',
+    backImage: 'assets/cards/back/spider-1.png',
+    backText: 'Conquista por acertar questão sobre traje Aranha de Ferro.'
+  },
+  {
+    id: 'card_spider_tres_miranha_1',
+    title: 'Três Homens-Aranha',
+    frontImage: 'assets/cards/spider/tres-miranha.png',
+    backImage: 'assets/cards/back/spider-1.png',
+    backText: 'Conquista por acertar questão sobre a cena dos três Homens-Aranha.'
+  },
+  {
+    id: 'card_spider_spiderverse_1',
+    title: 'Aranhaverso',
+    frontImage: 'assets/cards/spider/spiderverse.png',
+    backImage: 'assets/cards/back/spider-1.png',
+    backText: 'Conquista por acertar questão sobre o Aranhaverso.'
   }
 ];

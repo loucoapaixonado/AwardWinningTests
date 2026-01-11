@@ -1,2 +1,1 @@
-- [x] Update data/cards.js with new CARDS array including all required cards for MLP, BTS, and BT21 characters.
-- [x] Update data/questions.js with new QUESTIONS array including all required questions for MLP, BTS, and BT21 characters.
+# TODO
