@@ -30,6 +30,12 @@ const selectedTopicsStore = {
 }
 
 let state = { collection: store.load(), asked: askedStore.load(), selectedTopics: selectedTopicsStore.load() };
+
+// Função para tocar sons
+function playSound(filename) {
+  const audio = new Audio(`assets/sounds/${filename}`);
+  audio.play().catch(e => console.warn('Erro ao tocar som:', e));
+}
 // helper de UI: mostrar mensagens rápidas (snackbar)
 function showSnackbar(text){
   const id = 'aw-snackbar';
@@ -237,6 +243,8 @@ function handleAnswer(e,q){
   const backMsg = document.getElementById('back-msg');
   // add visual selection
   e.currentTarget.classList.add(idx===q.answerIndex? 'correct':'wrong');
+  // play sound
+  playSound(idx===q.answerIndex ? 'sound-correct.mp3' : 'sound-wrong.mp3');
   // start 360 animation and update back content at 50%
   const duration = 800;
   card.classList.add('rotate-180');
@@ -269,9 +277,11 @@ function grantReward(cardId){
   const reward = CARDS.find(c=>c.id===cardId);
   if(!reward) return renderReward(null);
   // add to collection if not exists
-  if(!state.collection.find(c=>c.id===cardId)){
+  const isNew = !state.collection.find(c=>c.id===cardId);
+  if(isNew){
     state.collection.push(reward);
     store.save(state.collection);
+    playSound('sound-reward.mp3');
   }
   renderReward(reward);
 }
